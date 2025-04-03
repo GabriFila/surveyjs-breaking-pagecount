@@ -9,18 +9,13 @@ import { useEffect, useState } from "react";
 const survey = new Model(json);
 survey.questionsOnPageMode = "questionPerPage";
 const totalPages = survey.pageCount;
-console.log(`totalPages`, totalPages);
 
 function SurveyComponent() {
-  const [isLastPage, setIsLastPage] = useState(false);
-  const [isLastElement, setIsLastElement] = useState(false);
   const [visibleIndex, setVisibleIndex] = useState(0);
 
   useEffect(() => {
     survey.onCurrentPageChanged.add((_, options) => {
       setVisibleIndex(options.newCurrentPage.visibleIndex);
-      setIsLastPage(survey.isLastPage ?? false);
-      setIsLastElement(survey.isLastElement ?? false);
     });
   }, []);
 
@@ -30,8 +25,6 @@ function SurveyComponent() {
         <div className="text-sm text-gray-600 text-left pl-4">
           <p>visibleIndex: {visibleIndex}</p>
           <p>pageCount: {totalPages}</p>
-          <p>isLastPage: {isLastPage.toString()}</p>
-          <p>isLastElement: {isLastElement.toString()}</p>
         </div>
       </div>
       <Survey model={survey} />
