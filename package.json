@@ -13,8 +13,8 @@
     "@tailwindcss/vite": "^4.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "survey-core": "1.12.16",
-    "survey-react-ui": "1.12.16",
+    "survey-core": "1.12.15",
+    "survey-react-ui": "1.12.15",
     "tailwindcss": "^4.1.1"
   },
   "devDependencies": {
